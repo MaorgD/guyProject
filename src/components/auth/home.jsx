@@ -1,8 +1,8 @@
 import React from 'react'
 import Box from '@mui/material/Box';
 import { Button, Link } from '@mui/material';
-// import Container from '@mui/material/Container';
 import { motion } from "framer-motion";
+import { Link as ReactLink } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -27,15 +27,18 @@ const Home = () => {
         duration: 2,
         ease: "easeInOut",
         times: [0, 0.2, 0.5, 0.8, 1],
-        repeat: Infinity,
+        repeat: 0,
         repeatDelay: 1
       }}
     >
-      {/* <Box sx={{backgroundColor:"#2260fb59"}}  border="1px solid black" display="flex" flexDirection="column" justifyContent="center" alignItems="center"> */}
-      <Button variant="contained" color="primary" size="large" style={{ marginBottom: 20 }}>Login</Button>
-      <Button variant="contained" color="secondary" size="large" style={{ marginBottom: 20 }}>Registration</Button>
-      <Link href="#" color="#ffffff">Forgot Password</Link>
-    {/* </Box> */}
+      
+      <Button variant="contained" color="primary" size="large" style={{ marginBottom: 20 }}>
+        <ReactLink style={{color:"white",textDecoration:'none'}} to={"/login"}>LOGIN</ReactLink>
+      </Button>
+      <Button variant="contained" color="secondary" size="large" style={{ marginBottom: 20 }}>
+      <ReactLink style={{color:"white",textDecoration:'none'}} to={"/signUp"}>Registration</ReactLink>
+      </Button>
+      <ReactLink href="/login" style={{color:"white",textDecoration:'none'}} to={"/requestResetPass"}>Forgot Password</ReactLink>
     </motion.div>
   </Box>
     </Box>
