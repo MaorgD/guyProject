@@ -6,7 +6,6 @@ const Messages = () => {
   const message = searchParams.get("message");
   const name = searchParams.get("name");
 
-  
   return (
     <div>
       {error &&

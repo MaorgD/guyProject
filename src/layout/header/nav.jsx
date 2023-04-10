@@ -18,7 +18,7 @@ const Nav = () => {
 
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 return(
-    <div className="div">
+    <div >
         hello from nav
     </div>
 )

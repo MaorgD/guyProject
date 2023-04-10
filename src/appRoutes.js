@@ -8,7 +8,6 @@ import Loader from './components/ui/loader/loader'
 import Home from './components/auth/home'
 import Logout from './components/auth/logout'
 import Layout from './layout/layout'
-import ResponsiveAppBar from './layout/header/navForHome'
 // import Logout from './components/auth/logout'
 
 
@@ -55,10 +54,9 @@ const AppRoutes = () => {
                     <Route path='/resetPassword/:userId/:uniqueString' element={<ResetPassword />} />
                     <Route path='/login' element={<Login />} />
                     <Route path='/signUp' element={<SignUp />} />
-                    <Route path='/nav' element={<ResponsiveAppBar />} />
 
                     {/*  Layout */}
-                    <Route path='/user' element={<Layout />}>
+                    <Route path='/' element={<Layout />}>
                         {/* Outlet */}
 
 
