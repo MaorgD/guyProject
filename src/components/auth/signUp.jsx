@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { ThreeDots } from 'react-loader-spinner'
 import { useState } from 'react';
 import { API_URL, doApiMethodSignUpLogin } from '../../services/servise';
+import CircleAnima from '../ui/animation/circleAnima';
 // import InputEmailLinked from '../ui/inputs/groupLinked/inputEmailLinked';
 // import InputFirstName from '../ui/inputs/groupLinked/inputFirstName';
 // import InputLastName from '../ui/inputs/groupLinked/InputLastName';
@@ -39,7 +40,7 @@ const SignUp = () => {
         }
     }
     return (
-        <>
+        <CircleAnima>
             <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
                 <div className="w-full max-w-md space-y-8">
                     <div>
@@ -126,7 +127,7 @@ const SignUp = () => {
                     </form>
                 </div>
             </div>
-        </>
+        </CircleAnima>
     )
 }
 
