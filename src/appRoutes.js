@@ -20,7 +20,6 @@ import Layout from './layout/layout'
 
 const RequestResetPass = React.lazy(() => import('./components/auth/requestResetPass'));
 const ResetPassword = React.lazy(() => import('./components/auth/resetPassword'));
-const Login = React.lazy(() => import('./components/auth/login'));
 const SignUp = React.lazy(() => import('./components/auth/signUp'));
 const NotFound = React.lazy(() => import('./components/notFound'));
 const Messages = React.lazy(() => import('./components/messages'));
@@ -52,7 +51,6 @@ const AppRoutes = () => {
 
                     <Route path='/requestResetPass' element={<RequestResetPass />} />
                     <Route path='/resetPassword/:userId/:uniqueString' element={<ResetPassword />} />
-                    <Route path='/login' element={<Login />} />
                     <Route path='/signUp' element={<SignUp />} />
 
                     {/*  Layout */}

@@ -10,13 +10,12 @@ const InputName = (props) => {
     const register = props.register
     const defaultValue = props.defaultValue
     const label = props.label
-    const classNameStyleDiv = props.classNameStyleDiv
 
 
 
     return (
         <>
-            <div className={classNameStyleDiv}>
+            
                 <label htmlFor='name' className="block text-sm font-medium text-gray-700"> {label}</label>
                 <input
                     defaultValue={defaultValue}
@@ -33,7 +32,7 @@ const InputName = (props) => {
                 />
                 {errors.name && errors.name.type === 'minLength' && <div className='text-white font-bold text-sm bg-red-800 text-center rounded-b-md  border-gray-300  py-1'>{errors?.name?.message}</div>}
                 {errors.name && errors.name.type === 'required' && <div className='text-white font-bold text-sm bg-red-800 text-center rounded-b-md  border-gray-300  py-1'>{errors?.name?.message}</div>}
-            </div>
+            
 
 
 

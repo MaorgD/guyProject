@@ -8,7 +8,7 @@ const CircleAnima = ({ children }) => {
       animate={{
         scale: [1, 2, 2, 1, 1],
         rotate: [0, 0, 180, 180, 0],
-        borderRadius: ["0%", "0%", "50%", "50%", "0%"]
+        borderRadius: ["0%", "5%", "50%", "50%", "10%"]
       }}
       transition={{
         duration: 2,

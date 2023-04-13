@@ -4,7 +4,6 @@ import { Button } from '@mui/material';
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
 import CircleAnima from '../ui/animation/circleAnima';
-import Login from './login';
 
 const Home = () => {
   return (
@@ -20,7 +19,7 @@ const Home = () => {
         <CircleAnima>
           
           <Button variant="contained" color="primary" size="large" style={{ marginBottom: 20 }}>
-            <Link style={{ color: "white", textDecoration: 'none' }} to={"/login"}>LOGIN</Link>
+            <n/>k white", texion: 'none' }} to={"/login"}>LOGIN</noindexk>
           </Button>
           <Button variant="contained" color="secondary" size="large" style={{ marginBottom: 20 }}>
             <Link style={{ color: "white", textDecoration: 'none' }} to={"/signUp"}>Registration</Link>
