@@ -46,7 +46,7 @@
 
 import React from 'react';
 import { TextField, FormControl } from '@mui/material';
-import { regEmail } from '../../../../services/servise';
+import { regEmail } from '../../../services/servise';
 
 const InputEmail = (props) => {
   const errors = props.errors;
@@ -56,7 +56,6 @@ const InputEmail = (props) => {
 
 
   return (
-    <FormControl sx={{ m: 1, width: '25ch' }} variant="standard">
 
       <TextField
         {...register('email', {
@@ -65,38 +64,16 @@ const InputEmail = (props) => {
           maxLength: 35,
           pattern: regEmail,
         })}
-        // className='input_email'
         id="standard-password-input"
         label="email"
-        type="email"
+        type="text"
         name="email"
-
-        // autoComplete="current-password"
+        fullWidth
+        autoFocus
         variant="standard"
         error={Boolean(errors.email)}
         helperText={errors.email ? 'Enter valid email' : ''}
       />
-    </FormControl>
-
-    // <TextField
-    //   label={label}
-    //   defaultValue={defaultValue}
-    //   {...register('email', {
-    //     required: true,
-    //     minLength: 2,
-    //     maxLength: 35,
-    //     pattern: regEmail,
-    //   })}
-    //   id="email"
-    //   name="email"
-    //   type="text"
-    //   autoComplete="email"
-    //   variant="outlined"
-    //   error={Boolean(errors.email)}
-    //   helperText={errors.email ? 'Enter valid email' : ''}
-    // />
-
-
   );
 };
 

@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { ThreeDots } from "react-loader-spinner";
 import { API_URL, doApiMethod } from "../../services/servise";
-import InputEmail from "../ui/inputs/groupSpace/inputEmail";
+import InputEmail from "../ui/inputs/inputEmail";
 
 const RequestResetPass = () => {
   let {

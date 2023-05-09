@@ -10,15 +10,28 @@ body {
 }
 
 
-.box {
+.homeBox {
   
   min-width: 200px;
   min-height: 200px;
-  padding: 10px;
   max-width: 400px;
   max-height: 400px;
-  padding: 10px;
+  padding: 20px;
   background:black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+}
+.signUpBox {
+  
+  min-width: 200px;
+  min-height: 200px;
+  max-width: 400px;
+  max-height: 400px;
+  padding: 20px;
+  background:rgb(45, 67, 137);
   display: flex;
   justify-content: center;
   align-items: center;

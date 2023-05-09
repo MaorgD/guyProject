@@ -1,3 +1,4 @@
+import { TextField } from '@mui/material'
 import React from 'react'
 
 const InputStreetAddress = (props) => {
@@ -10,7 +11,7 @@ const InputStreetAddress = (props) => {
 
     return (
         <>
-            <div className="col-span-6">
+            {/* <div className="col-span-6">
                 <label className={labelStyle}>
                     {label}
                 </label>
@@ -29,7 +30,17 @@ const InputStreetAddress = (props) => {
                 {errors?.address && errors.address?.Street?.type === 'maxLength' && <div className='text-white font-bold text-sm bg-red-800 text-center rounded-b-md  border-gray-300  py-1'>{errors?.address.Street?.message}</div>}
                 {errors?.address && errors.address?.Street?.type === 'required' && <div className='text-white font-bold bg-red-800 text-center rounded-b-md border-gray-300  py-1'>{errors?.address.Street?.message}</div>}
 
-            </div>
+            </div> */}<TextField
+            {...register('dateOfBirth')}
+            label={label}
+            type="date"
+            name="dateOfBirth"
+            fullWidth
+            autoFocus={true}
+            variant="standard"
+            error={Boolean(errors.dateOfBirth)}
+            helperText={errors.dateOfBirth ? 'Enter Date Of Birth' : ''}
+        />
 
         </>
     )

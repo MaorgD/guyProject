@@ -1,5 +1,6 @@
+import { TextField } from '@mui/material';
 import React from 'react'
-import { regPhone } from '../../../../services/servise';
+import { regPhone } from '../../../services/servise';
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -17,12 +18,28 @@ const InputPhone = (props) => {
 
     return (
         <>
-            <div className={classNameStylePhone}>
+        <TextField
+            {...register('phone',
+            { required: { value: true, message: 'Phone is requried' }, pattern: regPhone, minLength: { value: 10, message: "Phone must be at least 10 characters" }, 
+            maxLength: { value: 15, message: "Phone cant be no more 15 characters" } })}
+            id="standard-password-input"
+            label={label}
+            type="text"
+            name="phone"
+            fullWidth
+            autoFocus
+            variant="standard"
+            error={Boolean(errors.phone)}
+            helperText={errors.phone ? 'Enter valid phone' : ''}
+        />
+            {/* <div className={classNameStylePhone}>
                 <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
                     {label}
                 </label>
                 <input defaultValue={defaultValue}
-                    {...register('phone', { required: { value: true, message: 'Phone is requried' }, pattern: regPhone, minLength: { value: 10, message: "Phone must be at least 10 characters" }, maxLength: { value: 15, message: "Phone cant be no more 15 characters" } })}
+                    {...register('phone',
+                     { required: { value: true, message: 'Phone is requried' }, pattern: regPhone, minLength: { value: 10, message: "Phone must be at least 10 characters" }, 
+                     maxLength: { value: 15, message: "Phone cant be no more 15 characters" } })}
                     type="text"
                     name="phone"
                     id="phone"
@@ -32,7 +49,7 @@ const InputPhone = (props) => {
                 {errors.phone && errors.phone.type === 'minLength' && <div className='text-white font-bold text-sm bg-red-800 text-center rounded-b-md  border-gray-300  py-1'>{errors?.phone?.message}</div>}
                 {errors.phone && errors.phone.type === 'required' && <div className='text-white font-bold bg-red-800 text-center rounded-b-md border-gray-300  py-1'>{errors?.phone?.message}</div>}
                 {errors.phone && errors.phone.type === 'maxLength' && <div className='text-white font-bold bg-red-800 text-center rounded-b-md border-gray-300  py-1'>{errors?.phone?.message}</div>}
-            </div>
+            </div> */}
 
 
 

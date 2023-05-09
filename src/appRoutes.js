@@ -8,6 +8,7 @@ import Loader from './components/ui/loader/loader'
 import Home from './components/auth/home'
 import Logout from './components/auth/logout'
 import Layout from './layout/layout'
+import Login from './components/auth/login'
 // import Logout from './components/auth/logout'
 
 
@@ -48,6 +49,7 @@ const AppRoutes = () => {
                     <Route path='/' element={<Home />} />
                     <Route path='/messages/' element={<Messages />} />
                     <Route path='/logout/' element={<Logout />} />
+                    {/* <Route path='/login' element={<Login />} /> */}
 
                     <Route path='/requestResetPass' element={<RequestResetPass />} />
                     <Route path='/resetPassword/:userId/:uniqueString' element={<ResetPassword />} />

@@ -1,9 +1,9 @@
 import React from 'react';
 import { FormControl, FormHelperText, IconButton, Input, InputAdornment, InputLabel, TextField } from '@mui/material';
-import { regPassword } from '../../../../services/servise';
+import { regPassword } from '../../../services/servise';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { red } from '@mui/material/colors';
+// import { red } from '@mui/material/colors';
 const InputPassword = (props) => {
   const errors = props.errors;
   const register = props.register;

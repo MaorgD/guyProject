@@ -1,10 +1,10 @@
 import React from 'react'
 import { motion } from "framer-motion";
 
-const CircleAnima = ({ children }) => {
+const CircleAnima = ({ children ,boxType}) => {
   return (
     <motion.div
-      className="box"
+      className={boxType}
       animate={{
         scale: [1, 2, 2, 1, 1],
         rotate: [0, 0, 180, 180, 0],
