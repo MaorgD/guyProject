@@ -3,11 +3,11 @@ import { useForm } from 'react-hook-form'
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { ThreeDots } from 'react-loader-spinner'
 import { useState } from 'react';
-import { API_URL, doApiMethod} from '../../services/servise';
+import { API_URL, doApiMethod } from '../services/servise';
 import { Box, Button } from '@mui/material';
-import BoxRiseUp from '../ui/animation/boxRiseUp';
-import InputPassword from '../ui/inputs/inputPassword';
-import InputConfirmPassword from '../ui/inputs/inputConfirmPassword';
+import BoxRiseUp from '../components/ui/animation/boxRiseUp';
+import InputPassword from '../components/ui/inputs/inputPassword';
+import InputConfirmPassword from '../components/ui/inputs/inputConfirmPassword';
 // import InputPasswordLinked from '../ui/inputs/groupLinked/inputPasswordLinked';
 // import InputConfirmPassword from '../ui/inputs/groupLinked/inputConfirmPassword';
 
@@ -51,42 +51,42 @@ const ResetPassword = () => {
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundImage: 'url("https://res.cloudinary.com/dh73miwc9/image/upload/v1681136499/DALL_E_2023-04-10_17.19.04_-_Background_for_a_website_related_to_a_futuristic_looking_trading_journal_in_blue_and_black_tones_with_a_bitcoin_symbol_g1xm9b.png")'
-      
+
         }}>
-      
+
             <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
-                <BoxRiseUp boxType="signUpBox">
-                <form style={{ display: "flex", flexDirection: "column" }} onSubmit={handleSubmit(onSub)} action="#" method="POST">
-                <InputPassword label={" Password "}
-                                    show={true}
-                                    register={register}
-                                    errors={errors} />
-                <InputConfirmPassword label={"Confirm Password "}
-                                    register={register}
-                                    getValues={getValues}
-                                    show={true}
-                                    errors={errors} />
-      
-                  {!isSubmitted ?
-                      <Button type='submit' >submit</Button>
-                      :
-                      <ThreeDots
-                          height="80"
-                          width="80"
-                          radius="9"
-                          color="blue"
-                          ariaLabel="three-dots-loading"
-                          wrapperStyle={{ 'display': "flex", 'justifyContent': "center" }}
-                          wrapperClass=""
-                          visible={true}
-                      />
-                  }
-      
-              </form>
-                   
-                    
+                <BoxRiseUp boxType="resetPasswordBox">
+                    <form style={{ display: "flex", flexDirection: "column" }} onSubmit={handleSubmit(onSub)} action="#" method="POST">
+                        <InputPassword label={" Password "}
+                            show={true}
+                            register={register}
+                            errors={errors} />
+                        <InputConfirmPassword label={"Confirm Password "}
+                            register={register}
+                            getValues={getValues}
+                            show={true}
+                            errors={errors} />
+
+                        {!isSubmitted ?
+                            <Button type='submit' >submit</Button>
+                            :
+                            <ThreeDots
+                                height="80"
+                                width="80"
+                                radius="9"
+                                color="blue"
+                                ariaLabel="three-dots-loading"
+                                wrapperStyle={{ 'display': "flex", 'justifyContent': "center" }}
+                                wrapperClass=""
+                                visible={true}
+                            />
+                        }
+
+                    </form>
+
+
                 </BoxRiseUp>
-      
+
             </Box>
         </Box>
 

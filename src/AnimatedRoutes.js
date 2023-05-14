@@ -3,13 +3,13 @@ import { Routes, Route, useLocation } from "react-router-dom";
 
 import { AnimatePresence } from "framer-motion";
 
-const Home = React.lazy(() => import('./components/auth/home'));
+const Home = React.lazy(() => import('./pages/home'));
 const Cards = React.lazy(() => import('./pages/cards'));
 const Layout = React.lazy(() => import('./layout/layout'));
 const Logout = React.lazy(() => import('./components/auth/logout'));
-const RequestResetPass = React.lazy(() => import('./components/auth/requestResetPass'));
-const ResetPassword = React.lazy(() => import('./components/auth/resetPassword'));
-const SignUp = React.lazy(() => import('./components/auth/signUp'));
+const RequestResetPass = React.lazy(() => import('./pages/requestResetPass'));
+const ResetPassword = React.lazy(() => import('./pages/resetPassword'));
+const SignUp = React.lazy(() => import('./pages/signUp'));
 const NotFound = React.lazy(() => import('./components/notFound'));
 const Messages = React.lazy(() => import('./components/messages'));
 

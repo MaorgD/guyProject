@@ -13,7 +13,7 @@ import InputPassword from '../ui/inputs/inputPassword';
 // function classNames(...classes) {
 //     return classes.filter(Boolean).join(' ')
 // }
-const Login = () => {
+const LoginForm = () => {
     const dispatch = useDispatch();
     const [isSubmitted, setIsSubmitted] = useState(false)
     const nav = useNavigate()
@@ -73,4 +73,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default LoginForm

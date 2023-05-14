@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { ThreeDots } from "react-loader-spinner";
-import { API_URL, doApiMethod } from "../../services/servise";
-import InputEmail from "../ui/inputs/inputEmail";
+import { API_URL, doApiMethod } from "../services/servise";
+import InputEmail from "../components/ui/inputs/inputEmail";
 import { Box, Button } from "@mui/material";
-import BoxRiseUp from "../ui/animation/boxRiseUp";
+import BoxRiseUp from "../components/ui/animation/boxRiseUp";
 
 const RequestResetPass = () => {
   let {
@@ -43,7 +43,7 @@ const RequestResetPass = () => {
   }}>
 
       <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
-          <BoxRiseUp boxType="signUpBox">
+          <BoxRiseUp boxType="requestResetPassBox">
           <form style={{ display: "flex", flexDirection: "column" }} onSubmit={handleSubmit(onSub)} action="#" method="POST">
             <InputEmail label={" Email address "}
                 register={register}

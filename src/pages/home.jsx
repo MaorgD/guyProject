@@ -3,8 +3,8 @@ import Box from '@mui/material/Box';
 import { Button } from '@mui/material';
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
-import CircleAnima from '../ui/animation/circleAnima';
-import Login from './login';
+import CircleAnima from '../components/ui/animation/circleAnima';
+import LoginForm from '../components/auth/loginForm';
 
 const Home = () => {
   return (
@@ -18,7 +18,7 @@ const Home = () => {
 
       <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
         <CircleAnima  boxType="homeBox">
-          <Login/>
+          <LoginForm/>
           
           <Button variant="contained" color="secondary" size="large" style={{ marginBottom: 20 }}>
             <Link style={{ color: "white", textDecoration: 'none' }} to={"/signUp"}>Sign Up</Link>
