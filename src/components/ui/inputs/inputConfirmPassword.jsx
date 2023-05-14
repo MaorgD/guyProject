@@ -30,7 +30,6 @@ const InputConfirmPassword = (props) => {
           required: true,
           validate: (value) => { return value == getValues('password') }
         })}
-        defaultValue={defaultValue}
         id="standard-adornment-password"
         type={showPassword ? 'text' : 'password'}
         name="confirmPassword"

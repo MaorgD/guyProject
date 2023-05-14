@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ThreeDots } from "react-loader-spinner";
 import { API_URL, doApiMethod } from "../../services/servise";
 import InputEmail from "../ui/inputs/inputEmail";
+import { Box, Button } from "@mui/material";
+import BoxRiseUp from "../ui/animation/boxRiseUp";
 
 const RequestResetPass = () => {
   let {
@@ -31,53 +33,47 @@ const RequestResetPass = () => {
     }
   };
   return (
-    <>
-      <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div className="w-full max-w-md space-y-8">
-          <div>
-            <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-              Write here the email you want to send a reset to
-            </h2>
-          </div>
-          <form
-            onSubmit={handleSubmit(onSub)}
-            className="mt-8 space-y-6"
-            action="#"
-            method="POST"
-          >
-            <div className="-space-y-px rounded-md shadow-sm">
-              <InputEmail
-                label={" Email address "}
+
+    <Box sx={{
+      backgroundPosition: 'inherit',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      backgroundImage: 'url("https://res.cloudinary.com/dh73miwc9/image/upload/v1681136499/DALL_E_2023-04-10_17.19.04_-_Background_for_a_website_related_to_a_futuristic_looking_trading_journal_in_blue_and_black_tones_with_a_bitcoin_symbol_g1xm9b.png")'
+
+  }}>
+
+      <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
+          <BoxRiseUp boxType="signUpBox">
+          <form style={{ display: "flex", flexDirection: "column" }} onSubmit={handleSubmit(onSub)} action="#" method="POST">
+            <InputEmail label={" Email address "}
                 register={register}
-                errors={errors}
-              />
-            </div>
-            {!isSubmitted ? 
-              <button
-                type="submit"
-                className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-              >
-                <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                
-                </span>
-                Send to email
-              </button>
-             : 
-              <ThreeDots
-                height="80"
-                width="80"
-                radius="9"
-                color="blue"
-                ariaLabel="three-dots-loading"
-                wrapperStyle={{}}
-                wrapperClass="flex justify-center"
-                visible={true}
-              />
+                errors={errors} />
+           
+
+            {!isSubmitted ?
+                <Button type='submit' >submit</Button>
+                :
+                <ThreeDots
+                    height="80"
+                    width="80"
+                    radius="9"
+                    color="blue"
+                    ariaLabel="three-dots-loading"
+                    wrapperStyle={{ 'display': "flex", 'justify-content': "center" }}
+                    wrapperClass=""
+                    visible={true}
+                />
             }
-          </form>
-        </div>
-      </div>
-    </>
+
+        </form>
+              <Button variant="contained" color="secondary" size="large" style={{ marginBottom: 20 }}>
+                  <Link style={{ color: "white", textDecoration: 'none' }} to={"/"}>Sign In</Link>
+              </Button>
+              
+          </BoxRiseUp>
+
+      </Box>
+  </Box>
   );
 };
 

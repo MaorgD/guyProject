@@ -44,17 +44,32 @@ const Login = () => {
         }
     }
     return (
-      
-                <form style={{ display: "flex", flexDirection: "column" }} onSubmit={handleSubmit(onSub)} action="#" method="POST">
-                    <InputEmail label={" Email address "}
-                        register={register}
-                        errors={errors} />
-                    <InputPassword label={" Password "}
-                    show={false}
-                        register={register}
-                        errors={errors} />
-                    <Button type='submit' >submit</Button>
-                </form>
+
+        <form style={{ display: "flex", flexDirection: "column" }} onSubmit={handleSubmit(onSub)} action="#" method="POST">
+            <InputEmail label={" Email address "}
+                register={register}
+                errors={errors} />
+            <InputPassword label={" Password "}
+                show={false}
+                register={register}
+                errors={errors} />
+
+            {!isSubmitted ?
+                <Button type='submit' >submit</Button>
+                :
+                <ThreeDots
+                    height="80"
+                    width="80"
+                    radius="9"
+                    color="blue"
+                    ariaLabel="three-dots-loading"
+                    wrapperStyle={{ 'display': "flex", 'justify-content': "center" }}
+                    wrapperClass=""
+                    visible={true}
+                />
+            }
+
+        </form>
 
     )
 }
