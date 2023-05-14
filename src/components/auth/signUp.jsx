@@ -33,21 +33,25 @@ const SignUp = () => {
     let { register, handleSubmit, getValues, formState: { errors } } = useForm();
 
     const onSub = (_dataBody) => {
-        // delete _dataBody.confirmPassword
+        _dataBody.fullName = {firstName:_dataBody.firstName,lastName:_dataBody.lastName}
+        delete _dataBody.confirmPassword  
+        delete _dataBody.firstName  
+        delete _dataBody.lastName  
         setIsSubmitted(true);
         console.log(_dataBody)
-        // doApi(_dataBody)
+        doApi(_dataBody)
     }
 
     const doApi = async (_dataBody) => {
         try {
-            const url = API_URL + '/users/manager';
-            const { data } = await doApiMethodSignUpLogin(url, "POST", _dataBody);
+            const url = API_URL + '/users';
+            const  {data}  = await doApiMethodSignUpLogin(url, "POST", _dataBody);
+            console.log(data)
             if (data.email) {
                 nav(`/messages/?name=${data.fullName.firstName}`)
             }
         } catch (err) {
-            alert(err.response.data.msg || err.response.data[0].message)
+            console.log(err.response.data.msg || err.response.data[0].message)
             setIsSubmitted(false);
         }
     }
@@ -115,7 +119,7 @@ const SignUp = () => {
                                 radius="9"
                                 color="blue"
                                 ariaLabel="three-dots-loading"
-                                wrapperStyle={{ 'display': "flex", 'justify-content': "center" }}
+                                wrapperStyle={{ 'display': "flex", 'justifyContent': "center" }}
                                 wrapperClass=""
                                 visible={true}
                             />

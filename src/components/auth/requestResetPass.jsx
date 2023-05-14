@@ -59,7 +59,7 @@ const RequestResetPass = () => {
                     radius="9"
                     color="blue"
                     ariaLabel="three-dots-loading"
-                    wrapperStyle={{ 'display': "flex", 'justify-content': "center" }}
+                    wrapperStyle={{ 'display': "flex", 'justifyContent': "center" }}
                     wrapperClass=""
                     visible={true}
                 />

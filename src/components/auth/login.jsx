@@ -29,11 +29,10 @@ const Login = () => {
             const url = API_URL + '/users/login';
             const { data } = await doApiMethodSignUpLogin(url, "POST", _dataBody);
 
-            if (data.token) {
-                localStorage.setItem(TOKEN_NAME, data.token);
-                if (data.rule.includes("manager")) {
-                    nav("/layoutmanger");
-                }
+            console.log(data);
+            if (data) {
+                localStorage.setItem(TOKEN_NAME, data);
+                    nav("/Cards");
             }
             dispatch(getUserInfo())
         }
@@ -63,7 +62,7 @@ const Login = () => {
                     radius="9"
                     color="blue"
                     ariaLabel="three-dots-loading"
-                    wrapperStyle={{ 'display': "flex", 'justify-content': "center" }}
+                    wrapperStyle={{ 'display': "flex", 'justifyContent': "center" }}
                     wrapperClass=""
                     visible={true}
                 />

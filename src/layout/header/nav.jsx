@@ -13,7 +13,7 @@ const Nav = () => {
     }
 
     useEffect(() => {
-        checkUser()
+        // checkUser()
     }, [])
 
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)

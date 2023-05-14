@@ -1,9 +1,13 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { ThreeDots } from 'react-loader-spinner'
 import { useState } from 'react';
 import { API_URL, doApiMethod} from '../../services/servise';
+import { Box, Button } from '@mui/material';
+import BoxRiseUp from '../ui/animation/boxRiseUp';
+import InputPassword from '../ui/inputs/inputPassword';
+import InputConfirmPassword from '../ui/inputs/inputConfirmPassword';
 // import InputPasswordLinked from '../ui/inputs/groupLinked/inputPasswordLinked';
 // import InputConfirmPassword from '../ui/inputs/groupLinked/inputConfirmPassword';
 
@@ -42,55 +46,49 @@ const ResetPassword = () => {
         }
     }
     return (
-        <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-            <div className="w-full max-w-md space-y-8">
-                <form onSubmit={handleSubmit(onSub)} className="mt-8 space-y-6" action="#" method="POST">
-                    <div className="-space-y-px rounded-md shadow-sm">
-
-                        {/* <InputPasswordLinked
-                            label={" Password "}
-                            register={register}
-                            errors={errors}
-                            className={"relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"}
-                        />
-
-                        <InputConfirmPassword
-                            getValues={getValues}
-                            label={"confirm Password"}
-                            register={register}
-                            errors={errors}
-                            className={classNames(errors.confirmPassword ? "relative block w-full appearance-none rounded-none  border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                                :
-                                "relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm")}
-                        /> */}
-                    </div>
-                    <div>
-                        {!isSubmitted ?
-                            <button
-                                type="submit"
-                                className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                            >
-                            
-                                Sign in
-                            </button>
-                            :
-                            <ThreeDots
-                                height="80"
-                                width="80"
-                                radius="9"
-                                color="blue"
-                                ariaLabel="three-dots-loading"
-                                wrapperStyle={{}}
-                                wrapperClass="flex justify-center"
-                                visible={true}
-                            />
-
-                        }
-                    </div>
-                </form>
-            </div>
-
-        </div>
+        <Box sx={{
+            backgroundPosition: 'inherit',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundImage: 'url("https://res.cloudinary.com/dh73miwc9/image/upload/v1681136499/DALL_E_2023-04-10_17.19.04_-_Background_for_a_website_related_to_a_futuristic_looking_trading_journal_in_blue_and_black_tones_with_a_bitcoin_symbol_g1xm9b.png")'
+      
+        }}>
+      
+            <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
+                <BoxRiseUp boxType="signUpBox">
+                <form style={{ display: "flex", flexDirection: "column" }} onSubmit={handleSubmit(onSub)} action="#" method="POST">
+                <InputPassword label={" Password "}
+                                    show={true}
+                                    register={register}
+                                    errors={errors} />
+                <InputConfirmPassword label={"Confirm Password "}
+                                    register={register}
+                                    getValues={getValues}
+                                    show={true}
+                                    errors={errors} />
+      
+                  {!isSubmitted ?
+                      <Button type='submit' >submit</Button>
+                      :
+                      <ThreeDots
+                          height="80"
+                          width="80"
+                          radius="9"
+                          color="blue"
+                          ariaLabel="three-dots-loading"
+                          wrapperStyle={{ 'display': "flex", 'justifyContent': "center" }}
+                          wrapperClass=""
+                          visible={true}
+                      />
+                  }
+      
+              </form>
+                   
+                    
+                </BoxRiseUp>
+      
+            </Box>
+        </Box>
 
     )
 }
