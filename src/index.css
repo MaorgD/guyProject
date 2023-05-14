@@ -29,7 +29,7 @@ body {
   min-width: 200px;
   min-height: 200px;
   max-width: 400px;
-  max-height: 400px;
+  max-height: none;
   padding: 20px;
   background:rgb(45, 67, 137);
   display: flex;

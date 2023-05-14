@@ -21,9 +21,9 @@ const Home = () => {
           <Login/>
           
           <Button variant="contained" color="secondary" size="large" style={{ marginBottom: 20 }}>
-            <Link style={{ color: "white", textDecoration: 'none' }} to={"/signUp"}>Registration</Link>
+            <Link style={{ color: "white", textDecoration: 'none' }} to={"/signUp"}>Sign Up</Link>
           </Button>
-          <Link href="/login" style={{ color: "white", textDecoration: 'none' }} to={"/requestResetPass"}>Forgot Password</Link>
+          <Link style={{ color: "white", textDecoration: 'none' }} to={"/requestResetPass"}>Forgot Password</Link>
         </CircleAnima>
 
       </Box>

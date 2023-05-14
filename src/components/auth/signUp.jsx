@@ -1,6 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ThreeDots } from 'react-loader-spinner'
 import { useState } from 'react';
 import { API_URL, doApiMethodSignUpLogin } from '../../services/servise';
@@ -11,7 +11,9 @@ import InputLastName from '../ui/inputs/inputLastName';
 import { Box, Button, Checkbox, FormControlLabel, Grid, TextField } from '@mui/material';
 import InputEmail from '../ui/inputs/inputEmail';
 import InputPhone from '../ui/inputs/inputPhone';
-import InputStreetAddress from '../ui/inputs/inputStreetAddress';
+import InputDate from '../ui/inputs/inputDate';
+import InputPassword from '../ui/inputs/inputPassword';
+import InputConfirmPassword from '../ui/inputs/inputConfirmPassword';
 
 // import InputEmailLinked from '../ui/inputs/groupLinked/inputEmailLinked';
 // import InputFirstName from '../ui/inputs/groupLinked/inputFirstName';
@@ -77,21 +79,38 @@ const SignUp = () => {
                                     register={register}
                                     errors={errors} />
                             </Grid>
-                            <Grid item xs={12}>
-                               <InputPhone label={" Phone Number "}
+                            <Grid item xs={12} sm={6}>
+                                <InputPhone label={" Phone Number "}
                                     register={register}
-                                    errors={errors}/>
+                                    errors={errors} />
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                                <InputDate label={" date of birth "}
+                                    register={register}
+                                    errors={errors} />
                             </Grid>
                             <Grid item xs={12}>
-                                <InputStreetAddress label={" date of birth "}
+                                <InputPassword label={" Password "}
+                                    show={true}
                                     register={register}
-                                    errors={errors}/>
+                                    errors={errors} />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <InputConfirmPassword label={"Confirm Password "}
+                                    register={register}
+                                    getValues={getValues}
+                                    show={true}
+                                    errors={errors} />
                             </Grid>
                         </Grid>
 
 
                         <Button type='submit' >submit</Button>
                     </form>
+                    <Button variant="contained" color="secondary" size="large" style={{ marginBottom: 20 }}>
+                        <Link style={{ color: "white", textDecoration: 'none' }} to={"/"}>Sign In</Link>
+                    </Button>
+                    <Link style={{ color: "white", textDecoration: 'none' }} to={"/requestResetPass"}>Forgot Password</Link>
                 </CircleAnima>
 
             </Box>

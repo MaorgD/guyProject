@@ -50,6 +50,7 @@ const Login = () => {
                         register={register}
                         errors={errors} />
                     <InputPassword label={" Password "}
+                    show={false}
                         register={register}
                         errors={errors} />
                     <Button type='submit' >submit</Button>

@@ -4,12 +4,13 @@ import { regPassword } from '../../../services/servise';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
-const InputPassword = (props) => {
+const InputConfirmPassword = (props) => {
   const errors = props.errors;
   const register = props.register;
   const defaultValue = props.defaultValue;
   const label = props.label
   const show = props.show
+  const getValues = props.getValues
 
   const [showPassword, setShowPassword] = React.useState(show);
 
@@ -22,18 +23,17 @@ const InputPassword = (props) => {
   return (
 
     <FormControl sx={{width:'100%'}} variant="standard">
-      <InputLabel error={Boolean(errors.password)} htmlFor="standard-adornment-password">{label}</InputLabel>
+      <InputLabel error={Boolean(errors.confirmPassword)} htmlFor="standard-adornment-password">{label}</InputLabel>
       <Input
       color="info"
-        {...register('password', {
+        {...register('confirmPassword', {
           required: true,
-          minLength: 8,
-          pattern: regPassword,
+          validate: (value) => { return value == getValues('password') }
         })}
         defaultValue={defaultValue}
         id="standard-adornment-password"
         type={showPassword ? 'text' : 'password'}
-        name="password"
+        name="confirmPassword"
         endAdornment={
           <InputAdornment position="end">
             <IconButton
@@ -46,7 +46,7 @@ const InputPassword = (props) => {
           </InputAdornment>
         }
       />
-      {Boolean(errors.password) && <FormHelperText error id="component-error-text">Password must contain at least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character</FormHelperText>}
+      {Boolean(errors.confirmPassword) && <FormHelperText error id="component-error-text">Password must contain at least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character</FormHelperText>}
 
     </FormControl>
 
@@ -54,4 +54,4 @@ const InputPassword = (props) => {
   );
 };
 
-export default InputPassword;
+export default InputConfirmPassword;
