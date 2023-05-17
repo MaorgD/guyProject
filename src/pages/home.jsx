@@ -16,7 +16,7 @@ const Home = () => {
 
     }}>
 
-      <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
+      <Box display="flex" overflow={'hidden'} justifyContent="center" alignItems="center" height="100vh">
         <CircleAnima  boxType="homeBox">
           <LoginForm/>
           

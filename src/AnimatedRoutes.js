@@ -11,7 +11,7 @@ const RequestResetPass = React.lazy(() => import('./pages/requestResetPass'));
 const ResetPassword = React.lazy(() => import('./pages/resetPassword'));
 const SignUp = React.lazy(() => import('./pages/signUp'));
 const NotFound = React.lazy(() => import('./components/notFound'));
-const Messages = React.lazy(() => import('./components/messages'));
+const Messages = React.lazy(() => import('./pages/messages'));
 
 function AnimatedRoutes() {
     const location = useLocation();

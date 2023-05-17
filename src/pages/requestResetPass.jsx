@@ -42,7 +42,7 @@ const RequestResetPass = () => {
 
   }}>
 
-      <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
+      <Box overflow={'hidden'} display="flex" justifyContent="center" alignItems="center" height="100vh">
           <BoxRiseUp boxType="requestResetPassBox">
           <form style={{ display: "flex", flexDirection: "column" }} onSubmit={handleSubmit(onSub)} action="#" method="POST">
             <InputEmail label={" Email address "}
