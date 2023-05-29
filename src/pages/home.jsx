@@ -2,11 +2,38 @@ import React from 'react'
 import Box from '@mui/material/Box';
 import { Button } from '@mui/material';
 import { motion } from "framer-motion";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import CircleAnima from '../components/ui/animation/circleAnima';
 import LoginForm from '../components/auth/loginForm';
+import { useDispatch, useSelector } from 'react-redux';
+// import { getUserInfo } from '../redux/featchers/userSlice';
+import { TOKEN_NAME } from '../services/servise';
+import { useEffect } from 'react';
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const nav = useNavigate()
+
+  const { user } = useSelector((state) => state.userSlice)
+  useEffect(() => {
+    if (localStorage.getItem(TOKEN_NAME)) {
+
+      if (user?.msg === 'success') {
+          console.log('success')
+          nav("/dashboard")
+      }
+      else if (user?.msg === 'failed') {
+          console.log('failed')
+          nav('/')
+      }
+  } else {
+      console.log('no token found')
+      // nav('/')
+  }
+  }, [user])
+  
+  
+
   return (
     <Box sx={{
       backgroundPosition: 'inherit',
@@ -17,9 +44,9 @@ const Home = () => {
     }}>
 
       <Box display="flex" overflow={'hidden'} justifyContent="center" alignItems="center" height="100vh">
-        <CircleAnima  boxType="homeBox">
-          <LoginForm/>
-          
+        <CircleAnima boxType="homeBox">
+          <LoginForm />
+
           <Button variant="contained" color="secondary" size="large" style={{ marginBottom: 20 }}>
             <Link style={{ color: "white", textDecoration: 'none' }} to={"/signUp"}>Sign Up</Link>
           </Button>

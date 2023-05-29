@@ -32,14 +32,14 @@ const LoginForm = () => {
             console.log(data);
             if (data) {
                 localStorage.setItem(TOKEN_NAME, data);
-                    nav("/Cards");
+                    nav("/dashboard");
             }
             dispatch(getUserInfo())
         }
         catch (err) {
             setIsSubmitted(false);
             // לשנות alert
-            console.log(err);
+            console.log(err.response.data);
         }
     }
     return (

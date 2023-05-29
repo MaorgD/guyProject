@@ -4,7 +4,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
 const Home = React.lazy(() => import('./pages/home'));
-const Cards = React.lazy(() => import('./pages/cards'));
+const Dashboard = React.lazy(() => import('./pages/dashboard'));
 const Layout = React.lazy(() => import('./layout/layout'));
 const Logout = React.lazy(() => import('./components/auth/logout'));
 const RequestResetPass = React.lazy(() => import('./pages/requestResetPass'));
@@ -32,7 +32,8 @@ function AnimatedRoutes() {
                     {/*  Layout */}
                     <Route path='/' element={<Layout />}>
                         {/* Outlet */}
-                        <Route path='/Cards' element={<Cards />} />
+                        <Route path='/dashboard' element={<Dashboard />} />
+                        {/* <Route path='/Cards' element={<Cards />} /> */}
 
 
                     </Route>
