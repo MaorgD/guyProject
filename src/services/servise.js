@@ -32,7 +32,8 @@ export const doApiTukenGet = async (_url) => {
         })
         return resp;
     } catch (err) {
-        throw err;
+        // console.log(err);
+        return err;
     }
 }
 

@@ -14,17 +14,18 @@ const Home = () => {
   const dispatch = useDispatch();
   const nav = useNavigate()
 
-  const { user } = useSelector((state) => state.userSlice)
+  const  {user}  = useSelector((state) => state.userSlice)
+  console.log(user)
   useEffect(() => {
     if (localStorage.getItem(TOKEN_NAME)) {
-
-      if (user?.msg === 'success') {
+console.log(user)
+      if (user!= null) {
           console.log('success')
           nav("/dashboard")
       }
-      else if (user?.msg === 'failed') {
+      else if (user== null) {
           console.log('failed')
-          nav('/')
+          // nav('/')
       }
   } else {
       console.log('no token found')
@@ -36,10 +37,10 @@ const Home = () => {
 
   return (
     <Box sx={{
+      backgroundImage: 'url("https://res.cloudinary.com/dh73miwc9/image/upload/v1681136499/DALL_E_2023-04-10_17.19.04_-_Background_for_a_website_related_to_a_futuristic_looking_trading_journal_in_blue_and_black_tones_with_a_bitcoin_symbol_g1xm9b.png")',
       backgroundPosition: 'inherit',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
-      backgroundImage: 'url("https://res.cloudinary.com/dh73miwc9/image/upload/v1681136499/DALL_E_2023-04-10_17.19.04_-_Background_for_a_website_related_to_a_futuristic_looking_trading_journal_in_blue_and_black_tones_with_a_bitcoin_symbol_g1xm9b.png")'
 
     }}>
 

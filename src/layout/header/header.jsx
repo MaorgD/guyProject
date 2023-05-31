@@ -25,16 +25,17 @@ function ResponsiveAppBar() {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const nav = useNavigate()
 
-  const  {user}  = useSelector((state) => state.userSlice)
-
+  const {user}  = useSelector((state) => state.userSlice)
+console.log(user)
 useEffect(() => {
+  
   if (localStorage.getItem(TOKEN_NAME)) {
-
-    if (user?.msg === 'success') {
+console.log(user)
+    if (user !=null) {
         console.log('success')
         
     }
-    else if (user?.msg === 'failed') {
+    else if (user== null) {
         console.log('failed')
         nav('/')
     }
@@ -153,7 +154,7 @@ useEffect(() => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt={user?.data.fullName.firstName} src="/static/images/avatar/2.jpg" />
+                <Avatar alt={user?.fullName.firstName} src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
             <Menu

@@ -15,7 +15,7 @@ const Messages = React.lazy(() => import('./pages/messages'));
 
 function AnimatedRoutes() {
     const location = useLocation();
-    console.log(location)
+    // console.log(location)
     return (
         <AnimatePresence mode="wait">
              <Routes key={location.pathname} location={location}>

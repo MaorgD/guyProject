@@ -6,8 +6,9 @@ import { API_URL, doApiTukenGet, TOKEN_NAME } from "../../services/servise"
 export const getUserInfo = createAsyncThunk(
     "user,getUserInfo", async (dispatch, getState) => {
         if (localStorage.getItem(TOKEN_NAME)) {
-            let data = await doApiTukenGet(API_URL + '/users/checkToken')
-            if (!data.err) {
+            let {data} = await doApiTukenGet(API_URL + '/users/checkToken')
+            console.log(data)
+            if (data) {
 
                 return data.data;
             } else {
