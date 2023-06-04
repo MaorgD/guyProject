@@ -9,7 +9,10 @@ body {
 
 }
 
-
+.remove-decoration {
+  text-decoration: none;
+  color: inherit;
+}
 .homeBox {
 
   min-width: 200px;

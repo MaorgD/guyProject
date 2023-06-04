@@ -13,11 +13,11 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { TOKEN_NAME } from '../../services/servise';
 import { useEffect } from 'react';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['userList', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
@@ -25,25 +25,30 @@ function ResponsiveAppBar() {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const nav = useNavigate()
 
-  const {user}  = useSelector((state) => state.userSlice)
-console.log(user)
+  const userData  = useSelector((state) => state.userSlice)
+console.log(userData)
 useEffect(() => {
-  
+  console.log("header userData")
+  console.log(userData)
   if (localStorage.getItem(TOKEN_NAME)) {
-console.log(user)
-    if (user !=null) {
+// console.log(userData.status=='loading')
+    if (userData.status=='success') {
         console.log('success')
         
     }
-    else if (user== null) {
-        console.log('failed')
-        nav('/')
+    else if (userData.status=='loading') {
+        console.log('loading')
+        // nav('/')
+    }
+    else if(userData.status=='failed'){
+      console.log('failed')
+      nav('/')
     }
 } else {
     console.log('no token found')
     nav('/')
 }
-}, [user])
+}, [userData])
 
   
   const handleOpenNavMenu = (event) => {
@@ -115,7 +120,8 @@ console.log(user)
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                
+                  <Link className='remove-decoration' to={`/${page}`}><Typography textAlign="center">{page}</Typography></Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -154,7 +160,7 @@ console.log(user)
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt={user?.fullName.firstName} src="/static/images/avatar/2.jpg" />
+                <Avatar alt={userData?.user?.fullName.firstName} src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
             <Menu
@@ -175,7 +181,9 @@ console.log(user)
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  
+                  <Link className='remove-decoration' to={`/${setting}`}><Typography textAlign="center">{setting}</Typography></Link>
+                  
                 </MenuItem>
               ))}
             </Menu>

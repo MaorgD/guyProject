@@ -6,17 +6,25 @@ import { API_URL, doApiTukenGet, TOKEN_NAME } from "../../services/servise"
 export const getUserInfo = createAsyncThunk(
     "user,getUserInfo", async (dispatch, getState) => {
         if (localStorage.getItem(TOKEN_NAME)) {
-            let {data} = await doApiTukenGet(API_URL + '/users/checkToken')
+            let data = await doApiTukenGet(API_URL + '/users/checkToken')
+            
             console.log(data)
-            if (data) {
-
-                return data.data;
-            } else {
+            console.log(data.data)
+            console.log(data.data.msg)
+            // console.log(data.response.status)
+             if(data.data.msg=='success'){
+                console.log(data.data)
+                return data.data.data;
+            }
+             else {
+                
                 return null
             }
 
 
         } else {
+            console.log("no token")
+
             return null;
         }
     }
@@ -40,12 +48,7 @@ const userSlice = createSlice({
                 if (action.payload == null) {
                     state.status = "failed";
                     state.user = null
-                } else if (action.payload == null) {
-                    state.user = null;
-                    state.status = "failed";
-
                 }
-
                 else {
                     state.user = { ...action.payload };
 

@@ -14,25 +14,28 @@ const Home = () => {
   const dispatch = useDispatch();
   const nav = useNavigate()
 
-  const  {user}  = useSelector((state) => state.userSlice)
-  console.log(user)
+  const userData  = useSelector((state) => state.userSlice)
   useEffect(() => {
+    console.log("home userData")
+    console.log(userData)
+    
     if (localStorage.getItem(TOKEN_NAME)) {
-console.log(user)
-      if (user!= null) {
+  // console.log(userData.status=='loading')
+      if (userData.status=='success') {
           console.log('success')
-          nav("/dashboard")
+          console.log(userData.status)
+          nav('/dashboard')
       }
-      else if (user== null) {
-          console.log('failed')
-          // nav('/')
+      else if (userData.status=='loading') {
+          console.log('loading')
+      }
+      else if(userData.status=='failed'){
+        console.log('failed')
       }
   } else {
       console.log('no token found')
-      // nav('/')
   }
-  }, [user])
-  
+  }, [userData])
   
 
   return (

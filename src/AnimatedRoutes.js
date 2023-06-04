@@ -5,6 +5,7 @@ import { AnimatePresence } from "framer-motion";
 
 const Home = React.lazy(() => import('./pages/home'));
 const Dashboard = React.lazy(() => import('./pages/dashboard'));
+const UsersList = React.lazy(() => import('./pages/usersList'));
 const Layout = React.lazy(() => import('./layout/layout'));
 const Logout = React.lazy(() => import('./components/auth/logout'));
 const RequestResetPass = React.lazy(() => import('./pages/requestResetPass'));
@@ -33,6 +34,7 @@ function AnimatedRoutes() {
                     <Route path='/' element={<Layout />}>
                         {/* Outlet */}
                         <Route path='/dashboard' element={<Dashboard />} />
+                        <Route path='/userList' element={<UsersList />} />
                         {/* <Route path='/Cards' element={<Cards />} /> */}
 
 
