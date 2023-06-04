@@ -17,8 +17,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { TOKEN_NAME } from '../../services/servise';
 import { useEffect } from 'react';
 
-const pages = ['userList', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['Dashboard', 'Blog'];
+const settings = ['Profile', 'Account',  'Logout'];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -124,6 +124,10 @@ useEffect(() => {
                   <Link className='remove-decoration' to={`/${page}`}><Typography textAlign="center">{page}</Typography></Link>
                 </MenuItem>
               ))}
+              {userData?.user?.role=='admin'&&<MenuItem key={'userList'} onClick={handleCloseNavMenu}>
+                
+                <Link className='remove-decoration' to={'/userList'}><Typography textAlign="center">User List</Typography></Link>
+              </MenuItem>}
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />

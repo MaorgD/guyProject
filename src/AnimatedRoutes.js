@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 import { AnimatePresence } from "framer-motion";
+import { useSelector } from "react-redux";
 
 const Home = React.lazy(() => import('./pages/home'));
 const Dashboard = React.lazy(() => import('./pages/dashboard'));
@@ -16,6 +17,8 @@ const Messages = React.lazy(() => import('./pages/messages'));
 
 function AnimatedRoutes() {
     const location = useLocation();
+    const userData  = useSelector((state) => state.userSlice)
+
     // console.log(location)
     return (
         <AnimatePresence mode="wait">
@@ -34,7 +37,7 @@ function AnimatedRoutes() {
                     <Route path='/' element={<Layout />}>
                         {/* Outlet */}
                         <Route path='/dashboard' element={<Dashboard />} />
-                        <Route path='/userList' element={<UsersList />} />
+                       {userData?.user?.role =='admin'&& <Route path='/userList' element={<UsersList />} />}
                         {/* <Route path='/Cards' element={<Cards />} /> */}
 
 
