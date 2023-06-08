@@ -1,10 +1,14 @@
+import { Box, Container } from '@mui/material'
 import React from 'react'
 import UsersListTable from '../components/admin/usersListTable'
 
 const UsersList = () => {
     console.log('UsersList')
   return (
-    <div style={{backgroundColor:'red'}}> <UsersListTable/></div>
+    <Container maxWidth="xl">
+    <UsersListTable/>
+  </Container>
+    
   )
 }
 
